@@ -17,7 +17,7 @@ Você vai precisar de `git` e `docker`.
 1. Clone o repositório e acesse a pasta dele na sua máquina
 
 ```sh
-git clone
+git clone https://github.com/IDENTIFICA-ERECHIM/identifica-dashboard.git
 ```
 
 2. Certifique-se de que o banco esta rodando. Isso acontece no identifica-etl
