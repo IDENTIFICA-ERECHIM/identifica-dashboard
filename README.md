@@ -2,7 +2,7 @@
 
 # Projeto Identifica
 
-Projeto realizado pelo IFRS-Erechim, UFFS-Erechim e URI-Erchim em parceria com a Prefeitura da Cidade, visando elaborar um diagnóstico socioeconômico de Erechim.
+Projeto realizado pelo IFRS-Erechim, UFFS-Erechim e URI-Erchim em parceria com a Prefeitura da Cidade e o CODER, visando elaborar um diagnóstico socioeconômico de Erechim.
 
 Objetivo: Propor um modelo de atuação integrado para o município de Erechim, articulando diretrizes regionais, capacidades locais e mecanismos de monitoramento por indicadores, com foco na competitividade e no desenvolvimento sustentável.
 
@@ -88,3 +88,8 @@ Se quiser desfazer depois, rode:
 ```powershell
 Remove-NetFirewallRule -DisplayName "Identifica Dashboard"
 ```
+
+
+# Créditos:
+
+- Para as cores, usei o tema [seoul-256](https://github.com/junegunn/seoul256.vim)

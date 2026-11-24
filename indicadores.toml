@@ -590,6 +590,7 @@ aviso = """
 Consideramos como 'coleta adequada' os domicílios nas categorias: 'Coletado no domicílio por serviço de limpeza' e 'Depositado em caçamba de serviço de limpeza'
 """
 fonte = "Cálculo próprio com base na tabela 6892 do SIDRA"
+largo=true
 
 
 
@@ -680,6 +681,7 @@ Quatro medidas exibidas separadamente: estabelecimentos, leitos, equipamentos e 
 """
 aviso = ""
 fonte = "CNES do DATASUS"
+largo=true
 
 
 
@@ -722,6 +724,7 @@ Rendimento médio mensal por morador dos domicílios particulares permanentes oc
 """
 aviso = ""
 fonte = "Tabela 10295 do SIDRA"
+largo=true
 
 
 # ECONOMICOS
@@ -855,7 +858,9 @@ tabelas = ["producao_agricola"]
 descricao = """
 Área plantada e colhida. Distâncias grandes entre as linhas indicam perda de safra.
 """
-aviso = "Produtos ordenados pela maior área plantada no último ano."
+aviso = """
+No filtro, os produtos estão ordenados pela maior área plantada no último ano. As linhas azul e vermelha podem estar sobrepostas (valores iguais)
+"""
 fonte = "Tabela 1612 do SIDRA"
 
 
@@ -1029,6 +1034,7 @@ Estabelecimentos, unidades habitacionais e leitos de hospedagem
 """
 aviso = "Os dados mais atualizados são relativamente antigos (2016)"
 fonte = "Tabela 6589 do SIDRA"
+largo=true
 
 
 
@@ -1043,3 +1049,4 @@ Despesa de capital da prefeitura com **investimentos públicos**.
 """
 aviso = ""
 fonte = "Série DINVESTM do IPEA"
+largo=true

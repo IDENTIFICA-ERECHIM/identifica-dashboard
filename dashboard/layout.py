@@ -117,7 +117,7 @@ def modal_boas_vindas():
         Mercado de Trabalho, Indicadores Sociais e Economia e Setores Produtivos, e
         são mostrados em gráficos, para que qualquer pessoa consiga entender.
 
-        Para qualquer dúvida adicional sobre algum indicador, consulte as informações oficiais da base de dados respectiva.
+        Para qualquer dúvida adicional sobre algum indicador, consulte as informações oficiais da respectiva base de dados.
         A fonte de cada indicador fica logo abaixo de seu gráfico, indicada pelo ícone: {icones.BD}
     """
     )
