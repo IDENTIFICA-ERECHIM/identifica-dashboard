@@ -1,0 +1,13 @@
+services:
+  dashboard:
+    build: .
+    env_file: .env
+    environment:
+      DB_HOST: mysql
+    ports:
+      - "8501:8501"
+    networks: [identifica]
+
+networks:
+  identifica:
+    external: true # usa a rede que o compose do etl criou

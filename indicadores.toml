@@ -1,0 +1,1045 @@
+# DEMOGRAFIA
+
+[[indicador]]
+cod = "IND-001"
+eixo = "Demografia"
+tema = "População total e evolução"
+titulo = "População residente total"
+tabelas = ["populacao_estimada"]
+descricao = "Estimativa anual da população residente."
+aviso = ""
+fonte = "Série ESTIMA_PO do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-002"
+eixo = "Demografia"
+tema = "População total e evolução"
+titulo = "Taxa de crescimento populacional"
+tabelas = ["populacao_estimada"]
+descricao = '''
+Variação percentual da população estimada em relação ao ano anterior:
+$$
+\small \left(\frac{\text{População no ano}}{\text{População no ano anterior}} - 1\right) \times 100
+$$
+'''
+aviso = "Só aparece quando existem dados da estimativa populacional no ano anterior."
+fonte = "Cálculo próprio com base no valor do IND-001"
+
+
+
+[[indicador]]
+cod = "IND-003"
+eixo = "Demografia"
+tema = "Urbanização e ruralidade"
+titulo = "População urbana e rural"
+tabelas = ["populacao_urbana_rural"]
+descricao = """
+População residente em área urbana e rural em cada Censo.
+"""
+aviso = "Dados decenais (anos de Censo)."
+fonte = "Séries POPUR e POPRU do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-004"
+eixo = "Demografia"
+tema = "Urbanização e ruralidade"
+titulo = "Taxa de urbanização"
+tabelas = ["populacao_urbana_rural"]
+descricao = '''
+Percentual da população que vive em área urbana:
+$$
+\small \frac{\text{população urbana}}{\text{população total}} \times 100
+$$
+'''
+aviso = "Dados decenais (anos de Censo)."
+fonte = "Cálculo próprio com base no indicador anterior, e na série POPTOT do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-005"
+eixo = "Demografia"
+tema = "Estrutura etária"
+titulo = "Distribuição da população por grupos etários"
+tabelas = ["populacao_idade_sexo_faixas", "populacao_idade_sexo_faixas_especifico"]
+descricao = """
+Pirâmide etária: homens à esquerda, mulheres à direita.
+
+- **Censo 2022**: cobre somente 2022, mas possui faixas etárias mais específicas.
+- **Série histórica**: cobre mais anos, mas possui menos especificação de idades.
+"""
+aviso = "Na série histórica as faixas a partir de 30 anos têm 10 anos de largura, por isso as barras dessas faixas parecem maiores."
+fonte = "Tabela 9514 do SIDRA (Censo 2022) e séries de população por faixa etária e sexo do IPEA (série histórica)"
+
+
+
+[[indicador]]
+cod = "IND-006"
+eixo = "Demografia"
+tema = "Estrutura etária"
+titulo = "Índice de envelhecimento"
+tabelas = ["envelhecimento"]
+descricao = """
+Número de pessoas com **60 anos ou mais** para cada **100 pessoas de 0 a 14 anos**.
+Acima da linha pontilhada, há mais idosos do que jovens.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 10097 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-007"
+eixo = "Demografia"
+tema = "Estrutura etária"
+titulo = "Idade mediana"
+tabelas = ["idade_mediana"]
+descricao = """
+A mediana é o valor que divide um conjunto de valores ao meio. Ou seja, metade da população é mais jovem, e a outra metade é mais velha.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 9515 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-008"
+eixo = "Demografia"
+tema = "Estrutura etária"
+titulo = "Razão de dependência"
+tabelas = ["razao_dependencia"]
+descricao = '''
+Compara quem tende a depender de outros para se sustentar (crianças e idosos) com quem tende a sustentar (a população em idade de trabalhar):
+$$
+\small \frac{\text{crianças (0-14)} + \text{idosos (60+)}}{\text{ativos (15-59)}} \times 100
+$$
+Quanto maior é a razão de dependência, maior a “carga” demográfica sobre a população em idade de trabalhar.
+'''
+aviso = ""
+fonte = "Cálculo próprio com base nas séries de população por faixa etária do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-009"
+eixo = "Demografia"
+tema = "Sexo"
+titulo = "População por sexo / razão de sexo"
+tabelas = ["populacao_sexo"]
+descricao = '''
+Este indicador mostra quantos homens existem para cada 100 mulheres:
+$$
+\small \frac{\text{homens}}{\text{mulheres}} \times 100
+$$
+'''
+aviso = "Dados decenais (anos de Censo)."
+largo = true
+fonte = "Séries POPM e POPF do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-010"
+eixo = "Demografia"
+tema = "Território e densidade"
+titulo = "Densidade demográfica"
+tabelas = ["densidade_demografica"]
+descricao = '''
+Habitantes por km²:
+$$
+\small \frac{\text{população total}}{\text{área do município (km}^2\text{)}}
+$$
+'''
+aviso = "A área do município pode mudar entre Censos."
+largo = true
+fonte = "Cálculo próprio com base nas séries POPTOT e AREA do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-011"
+eixo = "Demografia"
+tema = "Migração"
+titulo = "Perfil migratório, naturalidade e nacionalidade"
+tabelas = ["mig_municipio", "mig_uf", "mig_internacional"]
+descricao = """
+Pessoas de 5 anos ou mais que não moravam em Erechim, no RS ou no Brasil cinco anos antes do Censo.
+As três medidas se sobrepõem.
+"""
+aviso = ""
+largo = true
+fonte = "Tabelas 10160, 10159 e 10161 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-012"
+eixo = "Demografia"
+tema = "Dinâmica vital"
+titulo = "Nascidos vivos"
+tabelas = ["nascidos_vivos"]
+descricao = """
+Nascimentos **ocorridos no município** a cada ano (Registro Civil/IBGE)
+"""
+aviso = "Avaliar necessidade de migração para o DATASUS"
+fonte = "Tabela 2680 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-013"
+eixo = "Demografia"
+tema = "Dinâmica vital"
+titulo = "Óbitos"
+tabelas = []
+status = "em_desenvolvimento"
+descricao = """
+Número de óbitos por ano.
+"""
+aviso = ""
+fonte = "SIM do DATASUS"
+
+
+
+[[indicador]]
+cod = "IND-014"
+eixo = "Demografia"
+tema = "Projeções"
+titulo = "População projetada 2030 e 2035"
+tabelas = []
+status = "em_desenvolvimento"
+descricao = """
+Projeção da população para 2030 e 2035, ancorada no Censo 2022 e na série anual de estimativas.
+"""
+aviso = ""
+fonte = ""
+largo=true
+
+
+# MERCADO DE TRABALHO
+
+[[indicador]]
+cod = "IND-015"
+eixo = "Mercado de trabalho"
+tema = "Ocupação"
+titulo = "Pessoal ocupado total"
+tabelas = ["indicadores_empresariais"]
+descricao = """
+Pessoas ocupadas em empresas e outras organizações formais.
+"""
+aviso = ""
+fonte = "Tabela 9509 do SIDRA"
+largo=true
+
+
+
+[[indicador]]
+cod = "IND-016"
+eixo = "Mercado de trabalho"
+tema = "Ocupação"
+titulo = "Pessoal ocupado assalariado"
+tabelas = ["indicadores_empresariais"]
+descricao = """
+Parte do pessoal ocupado que é **assalariada**
+"""
+aviso = "Avaliar se é necessário migrar para a RAIS no futuro."
+fonte = "Tabela 9509 do SIDRA"
+largo=true
+
+
+
+[[indicador]]
+cod = "IND-017"
+eixo = "Mercado de trabalho"
+tema = "Estrutura empresarial"
+titulo = "Empresas e outras organizações atuantes"
+tabelas = ["indicadores_empresariais"]
+descricao = """
+Número de empresas e outras organizações (inclusive órgãos públicos e entidades sem fins lucrativos) atuantes no município.
+"""
+aviso = ""
+fonte = "Tabela 9509 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-018"
+eixo = "Mercado de trabalho"
+tema = "Estrutura empresarial"
+titulo = "Unidades locais"
+tabelas = ["indicadores_empresariais"]
+descricao = """
+Endereços de atuação das empresas (uma empresa pode ter várias unidades locais).
+"""
+aviso = ""
+fonte = "Tabela 9509 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-019"
+eixo = "Mercado de trabalho"
+tema = "Remuneração"
+titulo = "Salários e outras remunerações"
+tabelas = ["indicadores_empresariais"]
+descricao = """
+Salários pagos no ano pelas empresas e organizações do município.
+"""
+aviso = ""
+fonte = "Tabela 9509 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-020"
+eixo = "Mercado de trabalho"
+tema = "Remuneração"
+titulo = "Salário médio mensal"
+tabelas = ["indicadores_empresariais"]
+descricao = """
+Salário médio mensal do pessoal assalariado, em reais.
+"""
+aviso = ""
+fonte = "Tabela 9509 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-021"
+eixo = "Mercado de trabalho"
+tema = "Remuneração"
+titulo = "Rendimento médio do trabalho"
+tabelas = ["rendimentos_trabalho"]
+descricao = """
+Rendimento médio mensal de todos os trabalhos das pessoas ocupadas de 14 anos ou mais
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 10280 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-022"
+eixo = "Mercado de trabalho"
+tema = "Remuneração"
+titulo = "Rendimento mediano do trabalho"
+tabelas = ["rendimentos_trabalho"]
+descricao = """
+A mediana é o valor do meio: metade recebe menos que ela, metade recebe mais.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 10280 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-023"
+eixo = "Mercado de trabalho"
+tema = "Setores"
+titulo = "Ocupação/emprego por atividade econômica"
+tabelas = ["ocupacao_atividade"]
+descricao = """
+Pessoal ocupado **assalariado** por seção da CNAE 2.0.
+"""
+aviso = ""
+largo = true
+colapsavel=true
+fonte = "Tabela 9528 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-024"
+eixo = "Mercado de trabalho"
+tema = "Fluxos formais"
+titulo = "Admissões"
+tabelas = ["movimentacao_trabalhista"]
+descricao = """
+Admissões com carteira assinada registradas no Novo Caged, somadas no ano.
+"""
+aviso = "O ano corrente é parcial (soma apenas os meses já divulgados)."
+fonte = "Série ADMISNC do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-025"
+eixo = "Mercado de trabalho"
+tema = "Fluxos formais"
+titulo = "Desligamentos"
+tabelas = ["movimentacao_trabalhista"]
+descricao = """
+Desligamentos de vínculos com carteira assinada registrados no Novo Caged, somados no ano.
+"""
+aviso = ""
+fonte = "Série DESLIGNC do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-026"
+eixo = "Mercado de trabalho"
+tema = "Fluxos formais"
+titulo = "Saldo de empregos"
+tabelas = ["movimentacao_trabalhista"]
+descricao = '''
+$\text{Admissões} − \text{desligamentos}$. .
+'''
+aviso = ""
+largo = true
+fonte = "Cálculo próprio com base no IND-024 e no IND-025"
+
+
+
+[[indicador]]
+cod = "IND-027"
+eixo = "Mercado de trabalho"
+tema = "Formalidade"
+titulo = "Taxa de formalização"
+tabelas = ["taxa_formalizacao"]
+descricao = """
+Divisão dos ocupados entre quem contribui e quem não contribui para a previdência no trabalho principal.
+"""
+aviso = ""
+largo = true
+fonte = "Tabela 10266 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-028"
+eixo = "Mercado de trabalho"
+tema = "Qualificação"
+titulo = "Escolaridade/qualificação da força de trabalho"
+tabelas = ["qualificacao_forca_trabalhista"]
+descricao = """
+Pessoas ocupadas de 14 anos ou mais por **nível de instrução**
+"""
+aviso = "No futuro, o acompanhamento anual da força de trabalho formal passará para a base de dados 'RAIS'."
+largo = true
+fonte = "Tabela 10263 do SIDRA"
+
+
+# SOCIAIS
+
+[[indicador]]
+cod = "IND-029"
+eixo = "Social"
+tema = "Educação"
+titulo = "Taxa de alfabetização 15+"
+tabelas = ["alfabetizacao_15p"]
+descricao = """
+Percentual de pessoas de 15 anos ou mais que sabem ler e escrever um bilhete simples.
+"""
+aviso = ""
+fonte = "Tabela 9543 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-030"
+eixo = "Social"
+tema = "Educação"
+titulo = "Taxa de analfabetismo 15+"
+tabelas = ["analfabetismo_15p"]
+descricao = """
+Percentual de pessoas de 15 anos ou mais que **não** sabem ler e escrever.
+"""
+aviso = ""
+fonte = "Tabela 10135 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-031"
+eixo = "Social"
+tema = "Educação"
+titulo = "Taxa de frequência escolar bruta"
+tabelas = ["freq_escolar"]
+descricao = """
+Percentual de pessoas de cada grupo de idade que **frequentam escola ou creche**.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 10056 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-032"
+eixo = "Social"
+tema = "Educação"
+titulo = "Nível de instrução da população"
+tabelas = ["nivel_instrucao"]
+descricao = """
+Pessoas de 15 anos ou mais por **nível de instrução**
+"""
+aviso = "Dados antigos: Censo 2010. "
+largo = true
+fonte = "Tabela 3460 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-033"
+eixo = "Social"
+tema = "Educação"
+titulo = "Matrículas, docentes, escolas e IDEB"
+tabelas = []
+status = "em_desenvolvimento"
+descricao = """
+Matrículas, docentes, escolas e IDEB como medidas separadas.
+"""
+aviso = ""
+fonte = "INEP"
+
+
+
+[[indicador]]
+cod = "IND-034"
+eixo = "Social"
+tema = "Habitação"
+titulo = "Domicílios particulares permanentes ocupados"
+tabelas = ["domicilios_ocupados"]
+descricao = """
+Total de domicílios particulares permanentes com moradores na data do Censo.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 4712 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-035"
+eixo = "Social"
+tema = "Habitação"
+titulo = "Média de moradores por domicílio"
+tabelas = ["media_moradores_domicilio"]
+descricao = """
+Número médio de moradores por domicílio, conforme o perfil da **pessoa responsável** pelo domicílio.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 9877 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-036"
+eixo = "Social"
+tema = "Habitação"
+titulo = "Condição de ocupação do domicílio"
+tabelas = ["condicao_ocupacao_domicilio"]
+descricao = """
+Participação de cada condição (**próprio, alugado, cedido, outra**) no total de domicílios ocupados.
+"""
+aviso = "Censo 2022."
+fonte = "Cálculo próprio com base na tabela 9928 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-037"
+eixo = "Social"
+tema = "Saneamento"
+titulo = "Abastecimento de água"
+tabelas = ["abastecimento_agua"]
+descricao = '''
+Percentual de domicílios ligados à rede geral:
+$$
+\small \frac{\text{domicílios ligados à rede geral}}{\text{total de domicílios}} \times 100
+$$
+'''
+aviso = ""
+fonte = "Cálculo próprio com base na tabela 6803 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-038"
+eixo = "Social"
+tema = "Saneamento"
+titulo = "Esgotamento sanitário"
+tabelas = ["esgotamento_sanitario"]
+descricao = '''
+Percentual dos domicílios ligados à rede geral, rede pluvial ou fossa ligada à rede:
+$$
+\small \frac{\text{domicílios ligados à rede geral, pluvial ou fossa ligada à rede}}{\text{total de domicílios}} \times 100
+$$
+'''
+aviso = ""
+fonte = "Cálculo próprio com base na tabela 6805 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-039"
+eixo = "Social"
+tema = "Saneamento"
+titulo = "Coleta/destinação de resíduos sólidos"
+tabelas = ["coleta_destinacao_residuos_solidos"]
+descricao = '''
+Percentual de domicílios com coleta adequada do lixo (coletado diretamente ou em caçamba):
+$$
+\small \frac{\text{domicílios com coleta adequada}}{\text{total de domicílios}} \times 100
+$$
+'''
+aviso = """
+Consideramos como 'coleta adequada' os domicílios nas categorias: 'Coletado no domicílio por serviço de limpeza' e 'Depositado em caçamba de serviço de limpeza'
+"""
+fonte = "Cálculo próprio com base na tabela 6892 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-040"
+eixo = "Social"
+tema = "Mobilidade"
+titulo = "Tempo habitual de deslocamento ao trabalho"
+tabelas = ["tempo_deslocamento_trabalho"]
+descricao = """
+Como se dividem as faixas de tempo de casa até o trabalho entre pessoas ocupadas que trabalham fora do domicílio.
+"""
+aviso = ""
+largo = true
+fonte = "Tabela 10333 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-041"
+eixo = "Social"
+tema = "Mobilidade"
+titulo = "Local/destino do trabalho e deslocamento intermunicipal"
+tabelas = ["deslocamento_intermunicipal"]
+descricao = """
+Pessoas que trabalham fora do domicílio, por tempo de deslocamento e classe de rendimento.
+"""
+aviso = ""
+fonte = "Tabela 10331 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-042"
+eixo = "Social"
+tema = "Mobilidade"
+titulo = "Modo/meio de transporte"
+tabelas = ["desloc_trabalho_meio_de_transporte"]
+descricao = """
+Meio de transporte em que a pessoa passa **mais tempo** para chegar ao trabalho.
+"""
+aviso = ""
+fonte = "Tabela 10332 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-043"
+eixo = "Social"
+tema = "Saúde"
+titulo = "Pessoas com deficiência/prevalência"
+tabelas = ["pessoas_deficiencia"]
+descricao = """
+Percentual de pessoas de 2 anos ou mais com deficiência (prevalência) e o número absoluto.
+"""
+aviso = "Censo 2022."
+fonte = "Tabela 10125 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-044"
+eixo = "Social"
+tema = "Saúde"
+titulo = "Mortalidade infantil, causas de óbito e internações"
+tabelas = []
+status = "em_desenvolvimento"
+descricao = '''
+Mortalidade infantil, causas de óbito por CID e internações por diagnóstico, em painéis separados.
+$$
+\small \text{Mortalidade infantil} = \frac{\text{óbitos de menores de 1 ano}}{\text{nascidos vivos}} \times 1000
+$$
+'''
+aviso = ""
+fonte = "SIM, SINASC e SIH do DATASUS"
+
+
+
+[[indicador]]
+cod = "IND-045"
+eixo = "Social"
+tema = "Saúde"
+titulo = "Estabelecimentos, leitos, equipamentos e profissionais"
+tabelas = []
+status = "em_desenvolvimento"
+descricao = """
+Quatro medidas exibidas separadamente: estabelecimentos, leitos, equipamentos e profissionais.
+"""
+aviso = ""
+fonte = "CNES do DATASUS"
+
+
+
+[[indicador]]
+cod = "IND-046"
+eixo = "Social"
+tema = "Segurança pública"
+titulo = "Taxa de homicídios"
+tabelas = ["taxa_homicidios"]
+descricao = """
+Homicídios por **100 mil habitantes** (Atlas da Violência/Ipea). A linha é a média móvel de 3 anos.
+"""
+aviso = "Em municípios do porte de Erechim, poucos casos podem mudar muito a taxa. Prefira analisar a média móvel."
+fonte = "Série AVIOL12_THOMIC do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-047"
+eixo = "Social"
+tema = "Segurança pública"
+titulo = "Taxa de suicídios"
+tabelas = ["taxa_suicidios"]
+descricao = """
+Óbitos por suicídio por **100 mil habitantes**. A linha é a média móvel com janela de 3 anos.
+"""
+aviso = "Em municípios do porte de Erechim, poucos casos podem mudar muito a taxa. Prefira analisar a média móvel."
+fonte = "Série AVIOL12_TSUICID do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-048"
+eixo = "Social"
+tema = "Vulnerabilidade e renda"
+titulo = "Rendimento domiciliar per capita"
+tabelas = ["rend_dom_per_capita"]
+descricao = """
+Rendimento médio mensal por morador dos domicílios particulares permanentes ocupados.
+"""
+aviso = ""
+fonte = "Tabela 10295 do SIDRA"
+
+
+# ECONOMICOS
+
+[[indicador]]
+cod = "IND-049"
+eixo = "Economia"
+tema = "PIB e estrutura produtiva"
+titulo = "PIB municipal"
+tabelas = ["pib_e_vab"]
+descricao = """
+Produto Interno Bruto a **preços correntes**.
+"""
+aviso = ""
+fonte = "Tabela 5938 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-050"
+eixo = "Economia"
+tema = "PIB e estrutura produtiva"
+titulo = "PIB per capita"
+tabelas = ["pib_per_capita"]
+descricao = '''
+Divide o PIB municipal pela **população estimada** do mesmo ano:
+$$
+\small \text{PIB per capita} = \frac{\text{PIB} \times 1000}{\text{População}}
+$$
+O PIB é multiplicado por 1000 pois a unidade é mil reais.
+'''
+aviso = "Só aparecem anos em que as duas fontes têm valor"
+fonte = "Cálculo próprio com base no IND-049 e na série ESTIMA_PO do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-051"
+eixo = "Economia"
+tema = "PIB e estrutura produtiva"
+titulo = "VAB agropecuária"
+tabelas = ["pib_e_vab"]
+descricao = """
+Valor adicionado bruto da **agropecuária** a preços correntes.
+"""
+aviso = ""
+fonte = "Tabela 5938 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-052"
+eixo = "Economia"
+tema = "PIB e estrutura produtiva"
+titulo = "VAB indústria"
+tabelas = ["pib_e_vab"]
+descricao = """
+Valor adicionado bruto da **indústria** a preços correntes.
+"""
+aviso = ""
+fonte = "Tabela 5938 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-053"
+eixo = "Economia"
+tema = "PIB e estrutura produtiva"
+titulo = "VAB serviços"
+tabelas = ["pib_e_vab"]
+descricao = """
+VAB dos serviços = **serviços privados** + **administração pública** (defesa, educação e saúde públicas, seguridade social).
+"""
+aviso = ""
+fonte = "Tabela 5938 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-054"
+eixo = "Economia"
+tema = "PIB e estrutura produtiva"
+titulo = "Participação setorial no VAB"
+tabelas = ["pib_e_vab"]
+descricao = """
+Quanto cada setor representa do valor adicionado total em cada ano (soma 100%).
+Participação dos serviços = serviços privados + administração pública.
+"""
+aviso = ""
+fonte = "Tabela 5938 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-055"
+eixo = "Economia"
+tema = "Empresas e estabelecimentos"
+titulo = "Empresas/unidades locais por CNAE"
+tabelas = ["empresas_cnae"]
+descricao = """
+Unidades locais por seção da CNAE 2.0.
+"""
+aviso = ""
+largo = true
+fonte = "Tabela 9528 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-056"
+eixo = "Economia"
+tema = "Empresas e estabelecimentos"
+titulo = "Pessoal ocupado por setor/CNAE"
+tabelas = ["empresas_cnae"]
+descricao = """
+Pessoal ocupado total por seção da CNAE. A distância entre os pontos mostra quanto cada setor cresceu ou encolheu.
+"""
+aviso = ""
+largo = true
+colapsavel=true
+fonte = "Tabela 9528 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-057"
+eixo = "Economia"
+tema = "Agricultura"
+titulo = "Área plantada e colhida"
+tabelas = ["producao_agricola"]
+descricao = """
+Área plantada e colhida. Distâncias grandes entre as linhas indicam perda de safra.
+"""
+aviso = "Produtos ordenados pela maior área plantada no último ano."
+fonte = "Tabela 1612 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-058"
+eixo = "Economia"
+tema = "Agricultura"
+titulo = "Quantidade produzida"
+tabelas = ["producao_agricola"]
+descricao = """
+Quantidade produzida por lavoura, na unidade própria de cada produto.
+"""
+aviso = ""
+fonte = "Tabela 1612 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-059"
+eixo = "Economia"
+tema = "Agricultura"
+titulo = "Rendimento médio da produção"
+tabelas = ["producao_agricola"]
+descricao = """
+Produção por hectare colhido (kg/ha) de cada lavoura.
+"""
+aviso = ""
+fonte = "Tabela 1612 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-060"
+eixo = "Economia"
+tema = "Agricultura"
+titulo = "Valor da produção agrícola"
+tabelas = ["producao_agricola"]
+descricao = """
+As 10 lavouras de maior **valor de produção** no ano selecionado.
+"""
+aviso = "Só anos onde a moeda já é o real (Alguns dados de anos antigos na tabela estão em moedas anteriores)."
+fonte = "Tabela 1612 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-061"
+eixo = "Economia"
+tema = "Pecuária"
+titulo = "Efetivo dos rebanhos"
+tabelas = ["quant_rebanhos"]
+descricao = """
+Número de cabeças por espécie.
+"""
+aviso = "Cada painel tem sua própria escala"
+largo = true
+fonte = "Séries QUANTBOVINOS, QUANTSUINOS, QUANTOVINOS, QUANTCAPRINOS e QUANTEQUINOS do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-062"
+eixo = "Economia"
+tema = "Pecuária"
+titulo = "Produção e valor do leite"
+tabelas = ["info_leite"]
+descricao = """
+Quantidade de leite produzida e seu valor.
+"""
+aviso = ""
+largo = true
+fonte = "Séries QUANTLEITE e VALORLEITE do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-063"
+eixo = "Economia"
+tema = "Silvicultura e extrativismo"
+titulo = "Produção e valor da silvicultura/extrativismo"
+tabelas = ["silvicultura", "extrativismo"]
+descricao = """
+Valor da produção da **silvicultura** (florestas plantadas) e da **extração vegetal** (PEVS/IBGE).
+"""
+aviso = ""
+largo = true
+fonte = "Tabelas 291 e 289 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-064"
+eixo = "Economia"
+tema = "Comércio exterior"
+titulo = "Exportações"
+tabelas = ["exportacoes_importacoes"]
+descricao = """
+Valor das exportações de empresas do município, em US$ FOB .
+"""
+aviso = "US$ FOB é o valor em dólares no embarque. Sem incluir frete internacional nem seguro de transporte até o destino"
+fonte = "Série EXPORTACAO do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-065"
+eixo = "Economia"
+tema = "Comércio exterior"
+titulo = "Importações"
+tabelas = ["exportacoes_importacoes"]
+descricao = """
+Valor das importações de empresas do município, em US$ FOB.
+"""
+aviso = "US$ FOB é o valor em dólares no embarque. Sem incluir frete internacional nem seguro de transporte até o destino"
+fonte = "Série IMPORTACAO do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-066"
+eixo = "Economia"
+tema = "Comércio exterior"
+titulo = "Saldo comercial"
+tabelas = ["exportacoes_importacoes"]
+descricao = '''
+**$\text{Exportações} − \text{importações}$**, para cada ano
+'''
+aviso = ""
+largo = true
+fonte = "Cálculo próprio com base no IND-064 e no IND-065"
+
+
+
+[[indicador]]
+cod = "IND-067"
+eixo = "Economia"
+tema = "Crédito e financiamento"
+titulo = "Estoque de crédito rural"
+tabelas = ["credito_rural"]
+descricao = """
+Estoque de crédito rural a preços constantes de 2010.
+"""
+aviso = ""
+fonte = "Série CREAT do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-068"
+eixo = "Economia"
+tema = "Crédito e financiamento"
+titulo = "Contratos de crédito rural"
+tabelas = ["credito_rural"]
+descricao = """
+Número de contratos de crédito rural no ano.
+"""
+aviso = ""
+fonte = "Série NCREAT do IPEA"
+
+
+
+[[indicador]]
+cod = "IND-069"
+eixo = "Economia"
+tema = "Turismo e hospedagem"
+titulo = "Estrutura de hospedagem"
+tabelas = ["hospedagem"]
+descricao = """
+Estabelecimentos, unidades habitacionais e leitos de hospedagem
+"""
+aviso = "Os dados mais atualizados são relativamente antigos (2016)"
+fonte = "Tabela 6589 do SIDRA"
+
+
+
+[[indicador]]
+cod = "IND-070"
+eixo = "Economia"
+tema = "Finanças públicas"
+titulo = "Investimento público municipal"
+tabelas = ["invest_publico_municipal"]
+descricao = """
+Despesa de capital da prefeitura com **investimentos públicos**.
+"""
+aviso = ""
+fonte = "Série DINVESTM do IPEA"

@@ -1,0 +1,16 @@
+[theme]
+base = "light"
+primaryColor = "#059669"             # emerald-600 (verde da logo)
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f8fafc" # slate-50
+textColor = "#0f172a"                # slate-900
+linkColor = "#1d4ed8"                # blue-700
+borderColor = "#e2e8f0"              # slate-200
+baseRadius = "0.6rem"
+chartCategoricalColors = ["#1d4ed8", "#059669", "#ea580c", "#7c3aed", "#0284c7", "#be123c", "#65a30d", "#c026d3"]
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

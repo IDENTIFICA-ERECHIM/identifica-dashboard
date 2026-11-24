@@ -1,0 +1,7 @@
+streamlit>=1.67
+plotly>=6
+pandas
+sqlalchemy
+pymysql
+python-dotenv
+cryptography

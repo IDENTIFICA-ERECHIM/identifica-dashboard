@@ -1,0 +1,13 @@
+.env
+.streamlit/secrets.toml
+*.key
+
+resumo_tabelas.py
+
+/scripts/
+
+.venv/
+venv/
+__pycache__/
+
+.vscode/
