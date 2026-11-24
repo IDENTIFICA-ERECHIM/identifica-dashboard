@@ -465,6 +465,7 @@ Percentual de pessoas de cada grupo de idade que **frequentam escola ou creche**
 """
 aviso = "Censo 2022."
 fonte = "Tabela 10056 do SIDRA"
+largo=true
 
 
 
@@ -495,6 +496,7 @@ Matrículas, docentes, escolas e IDEB como medidas separadas.
 """
 aviso = ""
 fonte = "INEP"
+largo=true
 
 
 
@@ -537,7 +539,7 @@ Participação de cada condição (**próprio, alugado, cedido, outra**) no tota
 """
 aviso = "Censo 2022."
 fonte = "Cálculo próprio com base na tabela 9928 do SIDRA"
-
+largo=true
 
 
 [[indicador]]

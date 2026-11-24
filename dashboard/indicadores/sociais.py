@@ -163,13 +163,15 @@ def indicador_043(df: pd.DataFrame):
 
 def indicador_046(df: pd.DataFrame):
     cmp.renderizar_grafico(
-        graficos.grafico_barras_com_media_movel(df, unidade="por 100 mil hab.")
+        graficos.grafico_barras_com_media_movel(df, unidade="por 100 mil hab."),
+        key="ind046_grafico"
     )
 
 
 def indicador_047(df: pd.DataFrame):
     cmp.renderizar_grafico(
-        graficos.grafico_barras_com_media_movel(df, unidade="por 100 mil hab.")
+        graficos.grafico_barras_com_media_movel(df, unidade="por 100 mil hab."),
+        key="ind047_grafico"
     )
 
 

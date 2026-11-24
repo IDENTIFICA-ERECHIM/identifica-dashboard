@@ -12,6 +12,7 @@ import streamlit as st
 
 import dashboard.dados as dados
 from dashboard.indicadores import GRAFICOS
+import dashboard.componentes as cmp
 
 import dashboard.icones as icones
 
@@ -37,7 +38,15 @@ def grafico(ind: dict):
         return
 
     try:
-        funcao(*[dados.carregar_tabela(t) for t in ind["tabelas"]])
+        tabelas = []
+        for t in ind["tabelas"]:
+            tabelas.append( dados.carregar_tabela(t) )
+
+        if all(tabela.empty for tabela in tabelas):
+            cmp.exibir_mensagem_sem_dados(separar_com_linha=True)
+            return
+
+        funcao(*tabelas)
     except Exception as erro:
         st.error(f"Não foi possível montar este indicador: {erro!r}", icon=":material/error:")
 

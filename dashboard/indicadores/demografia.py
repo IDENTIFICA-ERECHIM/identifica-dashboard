@@ -83,6 +83,10 @@ def indicador_005(historico: pd.DataFrame, censo: pd.DataFrame):
         piramide = piramide.rename(columns={"categoria_1": "sexo", "categoria_2": "faixa"})
         ordem = FAIXAS_CENSO
 
+    if piramide.empty:
+        cmp.exibir_mensagem_sem_dados()
+        return
+
     cmp.renderizar_grafico(
         graficos.grafico_piramide_etaria(piramide, ordem=ordem)
     )
@@ -113,11 +117,18 @@ def indicador_008(df: pd.DataFrame):
         columns="nome_variavel",
         values="valor"
         )
-    ativa = tabela["pop_ativa_15-59"]
+
+    try:
+        criancas = tabela["pop_criancas_0-14"]
+        ativa = tabela["pop_ativa_15-59"]
+        idosos = tabela["pop_idosa_60mais"]
+    except KeyError:
+        cmp.exibir_mensagem_sem_dados()
+        return
 
     partes = pd.DataFrame({
-        "Jovens (0-14)": tabela["pop_criancas_0-14"] / ativa * 100,
-        "Idosos (60+)":  tabela["pop_idosa_60mais"] / ativa * 100,
+        "Jovens (0-14)": criancas / ativa * 100,
+        "Idosos (60+)":  idosos / ativa * 100,
     })
 
 
@@ -175,6 +186,10 @@ def indicador_011(municipio: pd.DataFrame, uf: pd.DataFrame, internacional: pd.D
         dtf = dados.sem_total(dtf, "categoria_2")
         dtf = dtf.rename(columns={"categoria_1": "sexo", "categoria_2": "faixa"})
 
+        if dtf.empty:
+            cmp.exibir_mensagem_sem_dados()
+            return
+
         cmp.renderizar_grafico(
             graficos.grafico_piramide_etaria(dtf)
         )
@@ -208,7 +223,7 @@ def indicador_012(df: pd.DataFrame):
         por_idade = dados.sem_total(df, "categoria_1")
         por_idade = dados.sem_indeterminados(por_idade, "categoria_1")
 
-        # a tabela traz faixas ("15 a 19 anos") e idades simples ("15 anos"). 
+        # a tabela traz faixas ("15 a 19 anos") e idades simples ("15 anos").
         eh_faixa = por_idade["categoria_1"].str.contains(" a |Menos de|ou mais")
         por_idade = por_idade[eh_faixa]
 

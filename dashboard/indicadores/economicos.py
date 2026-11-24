@@ -110,7 +110,11 @@ def indicador_055(df: pd.DataFrame):
     d = dados.filtrar(d, ano=ano)
     d = dados.so_secoes_cnae(d, "categoria_1")
     d = d.dropna(subset=["valor"])
-    d = d[d["valor"] > 0]  # o treemap não desenha áreas zeradas
+    d = d[d["valor"] > 0]
+
+    if d.empty:
+        cmp.exibir_mensagem_sem_dados()
+        return
 
     cmp.renderizar_grafico(
         graficos.grafico_treemap(d, rotulo="categoria_1", unidade="unidades locais")
@@ -121,11 +125,15 @@ def indicador_056(df: pd.DataFrame):
     d = dados.filtrar(df, cod_variavel="707")
     d = dados.so_secoes_cnae(d, "categoria_1")
 
+    if d["ano"].nunique() < 2:
+        cmp.exibir_mensagem_sem_dados()
+        return
+
     # compara o primeiro com o último ano disponível
     primeiro = d["ano"].min()
     ultimo = d["ano"].max()
     d = dados.filtrar(d, ano=[primeiro, ultimo])
-    d["ano"] = d["ano"].astype(str)  # texto, para virar o nome de cada ponto na legenda
+    d["ano"] = d["ano"].astype(str)
 
     cmp.renderizar_grafico(
         graficos.grafico_halteres(d, categoria="categoria_1", serie="ano", unidade="pessoas ocupadas")
@@ -202,6 +210,10 @@ def indicador_060(df: pd.DataFrame):
     ano = cmp.dropdown_anos(d, key="ind060_ano")
     d = dados.filtrar(d, ano=ano)
     d = dados.sem_total(d, "categoria_1")
+
+    if d.empty:
+        cmp.exibir_mensagem_sem_dados()
+        return
 
     maiores = d.nlargest(10, "valor")
     maiores = _escala(maiores, 1e6)

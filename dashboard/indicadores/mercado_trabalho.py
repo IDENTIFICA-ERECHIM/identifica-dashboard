@@ -96,6 +96,10 @@ def indicador_023(df: pd.DataFrame):
     d = dados.filtrar(d, ano=ano)
     d = dados.so_secoes_cnae(d, "categoria_1")
 
+    if d.empty:
+        cmp.exibir_mensagem_sem_dados()
+        return
+
     cmp.renderizar_grafico(
         graficos.grafico_barras_horizontal(d, y="categoria_1", unidade="pessoas assalariadas")
     )

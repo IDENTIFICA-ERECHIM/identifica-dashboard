@@ -8,6 +8,8 @@ Autor: Gabriel
 Data de criação: 22/11/2026
 """
 
+from ctypes import alignment
+
 import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
@@ -22,16 +24,25 @@ import dashboard.graficos.configs_grafs as cfg
 CONFIG_PLOTLY = {"displayModeBar": False}
 
 
-def renderizar_grafico(fig: go.Figure):
+def renderizar_grafico(fig: go.Figure, key: str | None = None):
     altura = fig.to_dict().get("layout", {}).get("height")
     if altura is None:
         fig.update_layout(height=cfg.ALTURA_GRAFICO)
 
-    st.plotly_chart(fig, theme=None, config=CONFIG_PLOTLY)
+    st.plotly_chart(fig, theme=None, config=CONFIG_PLOTLY, key=key)
 
 
-def exibir_mensagem_sem_dados():
-    st.caption(f":material/warning: Sem dados para exibir")
+def exibir_mensagem_sem_dados(separar_com_linha=False):
+    if separar_com_linha:
+        st.divider()
+    st.space("small")
+    st.markdown(
+        "#### :material/database_off: Sem dados para exibir",
+        text_alignment="center"
+    )
+    st.space("small")
+    if separar_com_linha:
+        st.divider()
 
 
 def exibir_valor_mais_recente_destaque(df: pd.DataFrame, rotulo: str, unidade: str = "", casas: int = 0):
@@ -46,8 +57,9 @@ def exibir_valor_mais_recente_destaque(df: pd.DataFrame, rotulo: str, unidade: s
 
     st.metric(
         label=f"{rotulo} - {ano}",
-        value=fmt.com_unidade(valor, unidade, casas)
+        value=fmt.com_unidade(valor, unidade, casas),
     )
+    st.space("xxsmall")
 
 def exibir_total_destaque(df: pd.DataFrame, rotulo: str, unidade: str = "", casas: int = 0):
     totais = dados.filtrar_totais(df)
@@ -90,6 +102,9 @@ def slider_anos(df: pd.DataFrame, key: str) -> pd.DataFrame:
 
 def dropdown_anos(df: pd.DataFrame, key: str) -> int:
     anos = sorted(df["ano"].dropna().unique())
+
+    if not anos:
+        return None
 
     return int(st.selectbox(
         "Ano",
